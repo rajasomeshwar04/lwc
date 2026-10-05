@@ -1,4 +1,4 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, readonly } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 
 // lightning/navigation is not available during SSR
