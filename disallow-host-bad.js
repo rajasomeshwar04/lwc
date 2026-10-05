@@ -1,9 +1,12 @@
 import { LightningElement } from 'lwc';
+import { NavigationMixin } from 'lightning/navigation';
 
-export default class MyComponent extends LightningElement {
+// lightning/navigation is not available during SSR
+export default class MyComponent extends NavigationMixin(LightningElement) {
     connectedCallback() {
-        this.setAttribute('role', 'button');
-        this.classList.add('active');
-        this.style.color = 'red';
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordPage',
+            attributes: { recordId: '001xx000003DGbYAAW', actionName: 'view' }
+        });
     }
 }
